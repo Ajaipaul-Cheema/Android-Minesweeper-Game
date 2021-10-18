@@ -18,6 +18,7 @@
 
     <Button
         android:id="@+id/playGame"
+        android:drawableBottom="@drawable/ic_hockey_rink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
@@ -29,6 +30,7 @@
 
     <Button
         android:id="@+id/options"
+        android:drawableBottom="@drawable/ic_engrane"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="450dp"
@@ -40,6 +42,7 @@
 
     <Button
         android:id="@+id/help"
+        android:drawableBottom="@drawable/ic_help_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="220dp"
