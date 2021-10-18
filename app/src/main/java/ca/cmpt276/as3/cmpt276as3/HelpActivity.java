@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -35,6 +36,18 @@ public class HelpActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
+        launchCitations();
 
+    }
+
+    private void launchCitations() {
+        Button launchCitations = findViewById(R.id.citationsButton);
+        launchCitations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = CitationsActivity.makeLaunchIntent(HelpActivity.this);
+                startActivity(i);
+            }
+        });
     }
 }
