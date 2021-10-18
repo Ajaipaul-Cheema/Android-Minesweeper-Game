@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CMPT276As3">
         <activity
+            android:name=".HelpActivity"
+            android:exported="true"
+            android:label="@string/title_activity_help"
+            android:theme="@style/Theme.CMPT276As3.NoActionBar" />
+        <activity
+            android:name=".OptionsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_options"
+            android:theme="@style/Theme.CMPT276As3.NoActionBar" />
+        <activity
+            android:name=".GameActivity"
+            android:exported="true"
+            android:label="@string/title_activity_game"
+            android:theme="@style/Theme.CMPT276As3.NoActionBar" />
+        <activity
             android:name=".MenuScreenActivity"
             android:configChanges="orientation"
             android:exported="true"

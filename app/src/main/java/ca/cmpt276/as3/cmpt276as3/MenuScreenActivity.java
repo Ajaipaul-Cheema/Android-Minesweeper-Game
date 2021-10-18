@@ -9,6 +9,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -39,6 +40,42 @@ public class MenuScreenActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
         gameLogic = GameLogic.getInstance();
+        launchingGame();
+        launchingHelp();
+        launchingOptions();
 
+    }
+
+    private void launchingGame() {
+        Button launchGame = findViewById(R.id.playGame);
+        launchGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = GameActivity.makeLaunchIntent(MenuScreenActivity.this);
+                startActivity(i);
+            }
+        });
+    }
+
+    private void launchingHelp() {
+        Button launchHelp = findViewById(R.id.help);
+        launchHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = HelpActivity.makeLaunchIntent(MenuScreenActivity.this);
+                startActivity(i);
+            }
+        });
+    }
+
+    private void launchingOptions() {
+        Button launchOptions = findViewById(R.id.options);
+        launchOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = OptionsActivity.makeLaunchIntent(MenuScreenActivity.this);
+                startActivity(i);
+            }
+        });
     }
 }
