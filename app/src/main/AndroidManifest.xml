@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CMPT276As3">
         <activity
+            android:name=".CitationsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_citations"
+            android:theme="@style/Theme.CMPT276As3.NoActionBar" />
+        <activity
             android:name=".HelpActivity"
             android:exported="true"
             android:label="@string/title_activity_help"

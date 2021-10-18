@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">Hockey Cards Finder</string>
     <string name="title_activity_menu_screen">Main Menu</string>
-    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_game">Game</string>
+    <string name="title_activity_help">Help</string>
+    <string name="title_activity_options">Options</string>
+    <string name="title_activity_citations">Citations</string>
+    <string name="hyperlink1stImage">Startup image by beckett.com: <a href="https://www.beckett.com/news/2019-20-hockey-cards-release-dates-checklists-and-set-information/">beckett.com</a></string>
+    <string name="hyperlink2ndImage">Main menu image by wallpapercave.com: <a href="https://wallpapercave.com/hockey-rink-wallpapers">wallpapercave.com</a></string>
+    <string name="hyperlink3rdImage">Play game button picture by freesvg.org: <a href="https://freesvg.org/hockey-rink-vector-clip-art">freesvg.org</a></string>
+    <string name="hyperlink4thImage">Help button picture by freesvg.org: <a href="https://freesvg.org/red-button-with-word-help">freesvg.org</a></string>
+    <string name="hyperlink5thImage">Options button picture by freesvg.org: <a href="https://freesvg.org/vector-clip-art-of-grayscale-settings-options-icon">freesvg.org</a></string>
+    <string name="hyperlink6thImage">Help screen image by happywall.com: <a href="https://www.happywall.com/wall-murals/ice-hockey-game-wallpaper">happywall.com</a></string>
+    <string name="hyperlink7thImage">Citations screen image by reddit.com: <a href="https://www.reddit.com/r/leafs/comments/asq8cj/hockey_night_in_toronto/">reddit.com</a></string>
+    <string name="hyperlink8thImage">Hockey app icon image by istockphoto.com: <a href="https://www.istockphoto.com/vector/ice-hockey-championship-neon-sign-with-goalkeeper-ice-hockey-competition-logo-gm1209530517-350045687">istock.com</a></string>
+    <string name="writtenBy"><br>Written by Ajaipaul Cheema for CMPT 276\n Intro to Software Engineering.</br> </string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -10,7 +22,4 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="title_activity_options">OptionsActivity</string>
-    <string name="title_activity_help">HelpActivity</string>
-    <string name="writtenBy">Written by Ajaipaul Cheema for CMPT 276\n Intro to Software Engineering.</string>
 </resources>
