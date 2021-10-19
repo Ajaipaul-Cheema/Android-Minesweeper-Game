@@ -7,6 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -35,6 +37,7 @@ public class GameActivity extends AppCompatActivity {
     int[][] temp;
     Resources resource;
     Button button;
+    Animation animation;
 
     public static Intent makeLaunchIntent(Context c) {
         return new Intent(c, GameActivity.class);
@@ -167,6 +170,18 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    private void scanAnimationHelper(int col, int row) {
+        animation = AnimationUtils.loadAnimation(GameActivity.this,R.anim.scan_animation);
+        int[][] temp = new int[NUM_ROWS][NUM_COLS];
+
+        for(int j = 0; j < temp[row].length; j++) {
+            buttons[row][j].startAnimation(animation);
+        }
+        for(int j = 0; j < temp.length; j++) {
+            buttons[j][col].startAnimation(animation);
+        }
+    }
+
     private void gridButtonClicked(int col, int row) {
         button = buttons[row][col];
 
@@ -191,6 +206,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         else if (button.getText().toString().equals("  ")) {
+            scanAnimationHelper(col, row);
             button.setText(valuesGame[row][col]);
             scansUsed++;
             gameText();
@@ -202,6 +218,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         else {
+            scanAnimationHelper(col, row);
             scanButtons();
             updateNumbersForButtons();
             button.setText(valuesGame[row][col]);
