@@ -5,12 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import androidx.navigation.ui.AppBarConfiguration;
-
-import ca.cmpt276.as3.cmpt276as3.databinding.ActivityMainBinding;
 import ca.cmpt276.as3.cmpt276as3.databinding.ActivityMainBinding;
 
 import android.view.Menu;
@@ -23,8 +17,6 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
     Handler handler;
 
     Runnable run = () -> {
@@ -37,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        ca.cmpt276.as3.cmpt276as3.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
 
@@ -57,21 +49,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void rotate() {
-        Button menuBtn = (Button) findViewById(R.id.menuButton);
+        Button menuBtn = findViewById(R.id.menuButton);
         Animation animation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.rotate);
         menuBtn.startAnimation(animation);
     }
 
     private void goToMainMenu() {
         Button launchMenu = findViewById(R.id.menuButton);
-        launchMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = MenuScreenActivity.makeLaunchIntent(MainActivity.this);
-                startActivity(i);
-                handler.removeCallbacks(run);
-                finish();
-            }
+        launchMenu.setOnClickListener(v -> {
+            Intent i = MenuScreenActivity.makeLaunchIntent(MainActivity.this);
+            startActivity(i);
+            handler.removeCallbacks(run);
+            finish();
         });
 
     }

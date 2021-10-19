@@ -14,12 +14,4 @@
     <string name="hyperlink7thImage">Citations screen image by reddit.com: <a href="https://www.reddit.com/r/leafs/comments/asq8cj/hockey_night_in_toronto/">reddit.com</a></string>
     <string name="hyperlink8thImage">Hockey app icon image by istockphoto.com: <a href="https://www.istockphoto.com/vector/ice-hockey-championship-neon-sign-with-goalkeeper-ice-hockey-competition-logo-gm1209530517-350045687">istock.com</a></string>
     <string name="writtenBy"><br>Written by Ajaipaul Cheema for CMPT 276\n Intro to Software Engineering.</br> </string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

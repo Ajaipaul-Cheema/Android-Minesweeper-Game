@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="game_size_options">
+        <item>4 rows x 6 columns</item>
+        <item>5 rows x 10 columns</item>
+        <item>6 rows x 15 columns</item>
+    </string-array>
+
+    <string name="default_game_size">4 rows x 6 columns</string>
+
+    <string-array name="num_hockey_cards">
+        <item>6 hockey cards</item>
+        <item>10 hockey cards</item>
+        <item>15 hockey cards</item>
+        <item>20 hockey cards</item>
+    </string-array>
+
+    <string name="default_num_hockey_cards">6 hockey cards</string>
+</resources>

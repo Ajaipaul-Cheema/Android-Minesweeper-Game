@@ -5,37 +5,30 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+
 
 import ca.cmpt276.as3.cmpt276as3.databinding.ActivityCitationsBinding;
 
 public class CitationsActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityCitationsBinding binding;
+
     TextView linkButton1, linkButton2, linkButton3, linkButton4, linkButton5, linkButton6, linkButton7, linkButton8;
 
     public static Intent makeLaunchIntent(Context c) {
-        Intent intent = new Intent(c, CitationsActivity.class);
-        return intent;
+        return new Intent(c, CitationsActivity.class);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityCitationsBinding.inflate(getLayoutInflater());
+        ca.cmpt276.as3.cmpt276as3.databinding.ActivityCitationsBinding binding = ActivityCitationsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
@@ -99,10 +92,7 @@ public class CitationsActivity extends AppCompatActivity {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.istockphoto.com/vector/ice-hockey-championship-neon-sign-with-goalkeeper-ice-hockey-competition-logo-gm1209530517-350045687"));
             startActivity(browserIntent);
         });
-
-
-
-    };
+    }
 
 
 }
