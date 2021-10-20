@@ -11,23 +11,31 @@
         android:theme="@style/Theme.CMPT276As3">
         <activity
             android:name=".CitationsActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/title_activity_citations"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.CMPT276As3.NoActionBar" />
         <activity
             android:name=".HelpActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/title_activity_help"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.CMPT276As3.NoActionBar" />
         <activity
             android:name=".OptionsActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/title_activity_options"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.CMPT276As3.NoActionBar" />
         <activity
             android:name=".GameActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/title_activity_game"
+            android:screenOrientation="landscape"
             android:theme="@style/Theme.CMPT276As3.NoActionBar" />
         <activity
             android:name=".MenuScreenActivity"

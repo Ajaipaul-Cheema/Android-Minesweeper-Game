@@ -14,6 +14,11 @@ import ca.cmpt276.as3.cmpt276as3.databinding.ActivityOptionsBinding;
 
 import ca.cmpt276.as3.model.GameLogic;
 
+/**
+ * This class displays the game size and number of hockey cards options
+ * It also creates the board size and number of hockey cards by what was selected
+ * and saves those selected options to be rendered into the game activity
+ */
 public class OptionsActivity extends AppCompatActivity {
 
     GameLogic gameLogic;
@@ -38,7 +43,6 @@ public class OptionsActivity extends AppCompatActivity {
 
         createBoardSize();
         createNumHockeyCards();
-
     }
 
     private void createBoardSize() {
@@ -108,10 +112,9 @@ public class OptionsActivity extends AppCompatActivity {
     }
 
     public static String getNumHockeyCards(Context context) {
-        String defaultValue2 = context.getResources().getString(R.string.default_num_hockey_cards);
+        String hockeyCardsCount = context.getResources().getString(R.string.default_num_hockey_cards);
         SharedPreferences prefs = context.getSharedPreferences(HOCKEY_CARDS_PREF, MODE_PRIVATE);
-        return prefs.getString(NUM_HOCKEY_CARDS_PREF, defaultValue2);
+        return prefs.getString(NUM_HOCKEY_CARDS_PREF, hockeyCardsCount);
     }
-
 }
 

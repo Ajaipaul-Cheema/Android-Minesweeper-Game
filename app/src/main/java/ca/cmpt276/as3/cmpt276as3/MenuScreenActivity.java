@@ -11,10 +11,16 @@ import android.widget.Button;
 import ca.cmpt276.as3.cmpt276as3.databinding.ActivityMenuScreenBinding;
 import ca.cmpt276.as3.model.GameLogic;
 
+/**
+ * This class has three buttons (play game, help and options)
+ * to go to each of those activities
+ * It also handles saving the options between application executions
+ * by using the calling getter functions of options activity & saving them
+ * to game logic attributes by use of getInstance (singleton class model)
+ */
 public class MenuScreenActivity extends AppCompatActivity {
 
     private GameLogic gameLogic;
-
 
     public static Intent makeLaunchIntent(Context c) {
         return new Intent(c, MenuScreenActivity.class);

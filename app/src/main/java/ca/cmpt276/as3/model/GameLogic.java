@@ -1,6 +1,12 @@
 package ca.cmpt276.as3.model;
 
-
+/**
+ * This class represents the attributes of a game
+ * (rows, columns, scans used, total number of hockey cards & number of found cards)
+ * It calculates the rows, columns and number of hockey cards based on what was
+ * selected on the options page, it also has getters & setters to update number of
+ * scans and cards found
+ */
 public class GameLogic {
     private static GameLogic instance;
     private int row;
@@ -92,6 +98,4 @@ public class GameLogic {
         }
         setHockeyCardsNum(numOfHockeyCards);
     }
-
-
 }

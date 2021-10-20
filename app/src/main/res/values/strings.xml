@@ -13,5 +13,27 @@
     <string name="hyperlink6thImage">Help screen image by happywall.com: <a href="https://www.happywall.com/wall-murals/ice-hockey-game-wallpaper">happywall.com</a></string>
     <string name="hyperlink7thImage">Citations screen image by reddit.com: <a href="https://www.reddit.com/r/leafs/comments/asq8cj/hockey_night_in_toronto/">reddit.com</a></string>
     <string name="hyperlink8thImage">Hockey app icon image by istockphoto.com: <a href="https://www.istockphoto.com/vector/ice-hockey-championship-neon-sign-with-goalkeeper-ice-hockey-competition-logo-gm1209530517-350045687">istock.com</a></string>
+    <string name="ScanGameSound">Scan game sound by mixkit.co: <a href="https://mixkit.co/free-sound-effects/alarm/">https://mixkit.co/free-sound-effects/alarm/</a></string>
+    <string name="FoundHockeyCardSound">Found hockey card sound by soundboard.com: <a href="https://www.soundboard.com/sb/sound/394368">https://www.soundboard.com/sb/sound/394368</a></string>
+    <string name="hyperlinkCMPT276">Link for CMPT 276 home-page: <a href="https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home"></a>\nhttps://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home</string>
     <string name="writtenBy"><br>Written by Ajaipaul Cheema for CMPT 276\n Intro to Software Engineering.</br> </string>
+    <string name="startUpImageLink">https://www.beckett.com/news/2019-20-hockey-cards-release-dates-checklists-and-set-information/</string>
+    <string name="mainMenuImageLink">https://wallpapercave.com/hockey-rink-wallpapers</string>
+    <string name="playButtonImageLink">https://freesvg.org/hockey-rink-vector-clip-art</string>
+    <string name="helpButtonImageLink">https://freesvg.org/red-button-with-word-help</string>
+    <string name="optionsButtonImageLink">https://freesvg.org/vector-clip-art-of-grayscale-settings-options-icon</string>
+    <string name="helpScreenImageLink">https://www.happywall.com/wall-murals/ice-hockey-game-wallpaper</string>
+    <string name="citationsScreenImageLink">https://www.reddit.com/r/leafs/comments/asq8cj/hockey_night_in_toronto/</string>
+    <string name="appIconImageLink">https://www.istockphoto.com/vector/ice-hockey-championship-neon-sign-with-goalkeeper-ice-hockey-competition-logo-gm1209530517-350045687</string>
+    <string name="scanGameSoundLink">https://mixkit.co/free-sound-effects/alarm/</string>
+    <string name="foundCardSoundLink">https://www.soundboard.com/sb/sound/394368</string>
+    <string name="scansUsedNumber">"# Scans used: "</string>
+    <string name="regexValues">[0-9]+</string>
+    <string name="gameOverTitle">Game Over</string>
+    <string name="congratulate">You have found all hockey cards!</string>
+    <string name="returnMessage">Returning to menu screen</string>
+    <string name="cmpt276HomePageLink">https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home</string>
+    <string name="found">"Found "</string>
+    <string name="of">" of "</string>
+    <string name="hockeyCards">" hockey cards."</string>
 </resources>

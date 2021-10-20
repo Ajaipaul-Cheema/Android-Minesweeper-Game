@@ -15,10 +15,13 @@ import androidx.core.content.ContextCompat;
 
 import ca.cmpt276.as3.cmpt276as3.databinding.ActivityCitationsBinding;
 
+/**
+ * This class displays hyperlinks of all images and sounds
+ */
 public class CitationsActivity extends AppCompatActivity {
 
 
-    TextView linkButton1, linkButton2, linkButton3, linkButton4, linkButton5, linkButton6, linkButton7, linkButton8;
+    TextView startUpImage, mainMenuImage, playGameButtonImage, helpButtonImage, optionsButtonImage, helpScreenImage, citationsScreenImage, appIconImage, scanGameSound, hockeyCardFoundSound;
 
     public static Intent makeLaunchIntent(Context c) {
         return new Intent(c, CitationsActivity.class);
@@ -32,67 +35,35 @@ public class CitationsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
-        setupHyperlinks();
 
+        startUpImage = findViewById(R.id.firstImage);
+        mainMenuImage = findViewById(R.id.secondImage);
+        playGameButtonImage = findViewById(R.id.thirdImage);
+        helpButtonImage = findViewById(R.id.fourthImage);
+        optionsButtonImage = findViewById(R.id.fifthImage);
+        helpScreenImage = findViewById(R.id.sixthImage);
+        citationsScreenImage = findViewById(R.id.seventhImage);
+        appIconImage = findViewById(R.id.eighthImage);
+        scanGameSound = findViewById(R.id.scanGameSound);
+        hockeyCardFoundSound = findViewById(R.id.hockeyCardFoundSound);
+
+        setupHyperlink(startUpImage, getString(R.string.startUpImageLink));
+        setupHyperlink(mainMenuImage, getString(R.string.mainMenuImageLink));
+        setupHyperlink(playGameButtonImage, getString(R.string.playButtonImageLink));
+        setupHyperlink(helpButtonImage, getString(R.string.helpButtonImageLink));
+        setupHyperlink(optionsButtonImage, getString(R.string.optionsButtonImageLink));
+        setupHyperlink(helpScreenImage, getString(R.string.helpScreenImageLink));
+        setupHyperlink(citationsScreenImage, getString(R.string.citationsScreenImageLink));
+        setupHyperlink(appIconImage, getString(R.string.appIconImageLink));
+        setupHyperlink(scanGameSound, getString(R.string.scanGameSoundLink));
+        setupHyperlink(hockeyCardFoundSound, getString(R.string.foundCardSoundLink));
     }
 
-    private void setupHyperlinks() {
-        linkButton1 = findViewById(R.id.firstImage);
-        linkButton1.setTextColor(ContextCompat.getColor(this, R.color.black));
-        linkButton1.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.beckett.com/news/2019-20-hockey-cards-release-dates-checklists-and-set-information/"));
-            startActivity(browserIntent);
-        });
-
-        linkButton2 = findViewById(R.id.secondImage);
-        linkButton2.setTextColor(ContextCompat.getColor(this, R.color.black));
-        linkButton2.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://wallpapercave.com/hockey-rink-wallpapers"));
-            startActivity(browserIntent);
-        });
-
-        linkButton3 = findViewById(R.id.thirdImage);
-        linkButton3.setTextColor(ContextCompat.getColor(this, R.color.black));
-        linkButton3.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://freesvg.org/hockey-rink-vector-clip-art"));
-            startActivity(browserIntent);
-        });
-
-        linkButton4 = findViewById(R.id.fourthImage);
-        linkButton4.setTextColor(ContextCompat.getColor(this, R.color.black));
-        linkButton4.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://freesvg.org/red-button-with-word-help"));
-            startActivity(browserIntent);
-        });
-
-        linkButton5 = findViewById(R.id.fifthImage);
-        linkButton5.setTextColor(ContextCompat.getColor(this, R.color.black));
-        linkButton5.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://freesvg.org/vector-clip-art-of-grayscale-settings-options-icon"));
-            startActivity(browserIntent);
-        });
-
-        linkButton6 = findViewById(R.id.sixthImage);
-        linkButton6.setTextColor(ContextCompat.getColor(this, R.color.black));
-        linkButton6.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.happywall.com/wall-murals/ice-hockey-game-wallpaper"));
-            startActivity(browserIntent);
-        });
-
-        linkButton7 = findViewById(R.id.seventhImage);
-        linkButton7.setTextColor(ContextCompat.getColor(this, R.color.black));
-        linkButton7.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.reddit.com/r/leafs/comments/asq8cj/hockey_night_in_toronto/"));
-            startActivity(browserIntent);
-        });
-
-        linkButton8 = findViewById(R.id.eighthImage);
-        linkButton8.setTextColor(ContextCompat.getColor(this, R.color.black));
-        linkButton8.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.istockphoto.com/vector/ice-hockey-championship-neon-sign-with-goalkeeper-ice-hockey-competition-logo-gm1209530517-350045687"));
+    private void setupHyperlink(TextView textView, String url) {
+        textView.setTextColor(ContextCompat.getColor(this, R.color.black));
+        textView.setOnClickListener(v -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(browserIntent);
         });
     }
-
-
 }

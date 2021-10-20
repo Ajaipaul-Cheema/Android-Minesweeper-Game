@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -22,7 +23,15 @@ import java.util.Random;
 import ca.cmpt276.as3.cmpt276as3.databinding.ActivityGameBinding;
 import ca.cmpt276.as3.model.GameLogic;
 
-
+/**
+ * This class displays the appropriate game size & number of hockey cards
+ * according to the options picked by user on the options page
+ * It also randomizes placement of hockey cards and provides a number
+ * on a non-mine button or on a mine that has already been revealed
+ * It also shows a scanning animation across the button's row and column
+ * and makes different sounds whether if it was a mine or not a mine
+ * or a revealed mine being clicked again
+ */
 public class GameActivity extends AppCompatActivity {
 
     private GameLogic gameLogic;
@@ -38,6 +47,8 @@ public class GameActivity extends AppCompatActivity {
     Resources resource;
     Button button;
     Animation animation;
+    MediaPlayer noMine;
+    MediaPlayer mineFound;
 
     public static Intent makeLaunchIntent(Context c) {
         return new Intent(c, GameActivity.class);
@@ -61,8 +72,8 @@ public class GameActivity extends AppCompatActivity {
         numFoundCards = gameLogic.getNumFoundHockeyCards();
         scansUsed = gameLogic.getScanUsed();
 
-        gameText();
-        gameScans();
+        updateCardsFound();
+        updateScanNum();
         populateButtons(buttons);
         setHockeyCards();
 
@@ -85,6 +96,9 @@ public class GameActivity extends AppCompatActivity {
 
     private void populateButtons(Button [][] buttons) {
         TableLayout table = findViewById(R.id.Button_Table);
+        noMine = MediaPlayer.create(this, R.raw.scangame);
+        mineFound = MediaPlayer.create(this, R.raw.hockeycardrevealed);
+
 
         for (int row = 0; row < NUM_ROWS; row++) {
             TableRow tableRow = new TableRow(this);
@@ -115,22 +129,21 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private void gameText() {
-        TextView mines = findViewById(R.id.description);
-        String hockeyCardsFound = "Found " + numFoundCards + " of " + numCards + " hockey cards.";
-        mines.setText(hockeyCardsFound);
+    private void updateCardsFound() {
+        TextView cards = findViewById(R.id.description);
+        String hockeyCardsFound = getString(R.string.found) + numFoundCards + getString(R.string.of) + numCards + getString(R.string.hockeyCards);
+        cards.setText(hockeyCardsFound);
     }
 
-    private void gameScans() {
-        TextView scan = findViewById(R.id.scansUsed);
-        String scansDone = "# Scans used: " + scansUsed;
-        scan.setText(scansDone);
+    private void updateScanNum() {
+        TextView scans = findViewById(R.id.scansUsed);
+        String scansDone = getString(R.string.scansUsedNumber) + scansUsed;
+        scans.setText(scansDone);
     }
-
 
     private void scanButtons() {
         temp = new int[NUM_ROWS][NUM_COLS];
-        int count = 0;
+        int counter = 0;
         int temp_col, temp_row;
 
         for (temp_row = 0; temp_row < NUM_ROWS; temp_row++) {
@@ -138,32 +151,29 @@ public class GameActivity extends AppCompatActivity {
 
                 for (int col = 0; col < NUM_COLS; col++) {
                     if (buttons[temp_row][col].getText() == " ") {
-                        count++;
+                        counter++;
                     }
                 }
 
                 for (int row = 0; row < NUM_ROWS; row++) {
                     if (buttons[row][temp_col].getText() == " ") {
-                        count++;
+                        counter++;
                     }
                 }
 
-                temp[temp_row][temp_col] = count;
+                temp[temp_row][temp_col] = counter;
                 valuesGame[temp_row][temp_col] = Integer.toString(temp[temp_row][temp_col]);
-                count = 0;
+                counter = 0;
             }
-            count = 0;
+            counter = 0;
         }
     }
 
     private void updateNumbersForButtons() {
-
         for (int rows = 0; rows < NUM_ROWS; rows++) {
             for (int cols = 0; cols < NUM_COLS; cols++) {
-
                 String textValue = buttons[rows][cols].getText().toString();
-
-                if (textValue.matches("[0-9]+")) {
+                if (textValue.matches(getString(R.string.regexValues))) {
                     buttons[rows][cols].setText(valuesGame[rows][cols]);
                 }
             }
@@ -177,6 +187,7 @@ public class GameActivity extends AppCompatActivity {
         for(int j = 0; j < temp[row].length; j++) {
             buttons[row][j].startAnimation(animation);
         }
+
         for(int j = 0; j < temp.length; j++) {
             buttons[j][col].startAnimation(animation);
         }
@@ -186,11 +197,12 @@ public class GameActivity extends AppCompatActivity {
         button = buttons[row][col];
 
         if(button.getText().toString().equals(" ")) {
+            mineFound.start();
             scanButtons();
             updateNumbersForButtons();
             lockButtonSizes();
             numFoundCards++;
-            gameText();
+            updateCardsFound();
 
             int newWidth = button.getWidth();
             int newHeight = button.getHeight();
@@ -202,15 +214,17 @@ public class GameActivity extends AppCompatActivity {
             if (numFoundCards == numCards) {
                 winAlert();
             }
+
             button.setText("  ");
         }
 
         else if (button.getText().toString().equals("  ")) {
+            noMine.start();
             scanAnimationHelper(col, row);
             button.setText(valuesGame[row][col]);
             scansUsed++;
-            gameText();
-            gameScans();
+            updateCardsFound();
+            updateScanNum();
         }
 
         else if(button.getText().toString().equals(valuesGame[row][col])) {
@@ -218,12 +232,13 @@ public class GameActivity extends AppCompatActivity {
         }
 
         else {
+            noMine.start();
             scanAnimationHelper(col, row);
             scanButtons();
             updateNumbersForButtons();
             button.setText(valuesGame[row][col]);
             scansUsed++;
-            gameScans();
+            updateScanNum();
         }
 
         scanButtons();
@@ -232,12 +247,12 @@ public class GameActivity extends AppCompatActivity {
 
     private void winAlert() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setTitle("Game Over");
+        alertDialogBuilder.setTitle(R.string.gameOverTitle);
 
-        alertDialogBuilder.setMessage("You have found all hockey cards!")
+        alertDialogBuilder.setMessage(R.string.congratulate)
                 .setCancelable(false)
                 .setIcon(R.drawable.hockeygameover)
-                .setPositiveButton("Returning to menu screen", (dialog, id) -> finish());
+                .setPositiveButton(R.string.returnMessage, (dialog, id) -> finish());
 
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
